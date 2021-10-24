@@ -1,6 +1,6 @@
 FROM debian:buster
 
-LABEL maintainer="Colin Wilson colin@wyveo.com"
+LABEL maintainer="mrnaeem@tutanota.com"
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,9 +18,9 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
 	  found=''; \
 	  for server in \
-		  ha.pool.sks-keyservers.net \
+		  #ha.pool.sks-keyservers.net \
 		  hkp://keyserver.ubuntu.com:80 \
-		  hkp://p80.pool.sks-keyservers.net:80 \
+		  #hkp://p80.pool.sks-keyservers.net:80 \
 		  pgp.mit.edu \
 	  ; do \
 		  echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
