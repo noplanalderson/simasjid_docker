@@ -233,7 +233,7 @@ switch (ENVIRONMENT)
 	// Jika anda menggunakan xampp, sesuaikan isi variabel webdir dengan nama direktori aplikasi simasjid anda
 	// Jika anda mengarahkan webroot ke aplikasi ini, maka kosongkan variabel ini.
 	// Awali dengan slash (/). Contoh '/simasjid'
-	$webdir   = '/simasjid';
+	$webdir   = '';
 
 	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . $webdir);
 	
