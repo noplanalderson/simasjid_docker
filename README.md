@@ -36,3 +36,11 @@ Default web root:
 ```
 /usr/share/nginx/html/simasjid
 ```
+
+## Warning
+- This image not include MySQL Server
+- Dont forget to change server_name value in default.conf
+
+    ```
+    server_name _; # Replace _ with your domain or Host's IP Address
+    ```
