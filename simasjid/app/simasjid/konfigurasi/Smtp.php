@@ -38,7 +38,7 @@ class Smtp extends SIMASJID_Config {
 	public function index()
 	{	
 		if(empty($this->admin)) redirect('konfigurasi-admin');
-
+		
 		if(!empty($this->smtp)) redirect('masuk');
 
 		$this->_module 	= 'konfigurasi/smtp';

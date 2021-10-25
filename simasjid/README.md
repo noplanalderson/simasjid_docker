@@ -13,7 +13,7 @@ dengan modul audit yang bisa digunakan untuk mengaudit keuangan masjid jika dipe
 Informasi Rilis
 *******************
 
-Versi terbaru dari aplikasi SIMASJID adalah v1.5.0 yang bisa diunduh pada link 'Release' di halaman ini.
+Versi terbaru dari aplikasi SIMASJID adalah v1.5.1 yang bisa diunduh pada link 'Release' di halaman ini.
 
 **************************
 Fitur-fitur
@@ -47,15 +47,10 @@ Server Requirements
 - Email sebagai SMTP  (Silakan baca panduan [berikut](https://www.dewaweb.com/blog/cara-setting-smtp-gmail/))
 
 ************
-Instalasi
+Panduan Instalasi dan Konfigurasi
 ************
 
-- Buat database pada MariaDB atau jika anda menggunakan XAMPP, gunakan phpmyadmin.
-- Simpan folder aplikasi SIMASJID pada root directory webserver anda. Jika menggunakan XAMPP, letakkan folder aplikasi pada C:\\\\xampp\\htdocs
-- Ubah variabel $webdir pada file index.php, sesuaikan isinya dengan nama direktori aplikasi simasjid. Misal nama direktori adalah simasjid maka $webdir = 'simasjid'
-- Akses http://domain/install.php atau jika masih menggunakan webserver lokal seperti XAMPP, silakan akses http://localhost/simasjid/install.php
-- Masukkan nama database, user database, dan password database
-- Ikuti langkah-langkah selanjutnya
+- Silakan Baca pada Halaman [berikut](https://noplanalderson.github.io/simasjid/)
 
 *********
 Lain-lain
