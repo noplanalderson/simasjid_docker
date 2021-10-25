@@ -23,8 +23,8 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
 		  #hkp://p80.pool.sks-keyservers.net:80 \
 		  pgp.mit.edu \
 	  ; do \
-		  echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
-		  apt-key adv --batch --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
+                  echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
+                  apt-key adv --batch --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
 	  done; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
     echo "deb http://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list \
@@ -109,11 +109,11 @@ COPY ./supervisord.conf /etc/supervisord.conf
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 # Override default nginx welcome page
-COPY simasjid /usr/share/nginx/html/simasjid
+COPY ./simasjid /usr/share/nginx/html/simasjid
 
 # Copy Scripts
 COPY ./start.sh /start.sh
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["/start.sh"]
+CMD ["bash", "./start.sh"]
