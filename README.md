@@ -37,6 +37,17 @@ Default web root:
 /usr/share/nginx/html/simasjid
 ```
 
+## Using Docker Compose or Stack
+
+```
+mkdir db-data
+mkdir simasjid_logs
+touch simasjid_logs/access.log
+touch simasjid_logs/error.log
+
+docker-compose up -d
+```
+
 ## Warning
 - This image not include MySQL Server
 - Dont forget to change server_name value in default.conf
