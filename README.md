@@ -40,13 +40,13 @@ Default web root:
 ## Using Docker Compose or Stack
 
 ```
-mkdir db-data simasjid_logs
+$ mkdir db-data simasjid_logs
 ```
 ```
-touch simasjid_logs/access.log simasjid_logs/error.log
+$ touch simasjid_logs/access.log simasjid_logs/error.log
 ```
 ```
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 ## Warning
