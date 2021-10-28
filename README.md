@@ -29,7 +29,7 @@ $ docker pull noplanalderson/simasjid_docker:latest
 ## Running
 To run the container:
 ```
-$ sudo docker run -d noplanalderson/simasjid_docker:latest
+$ docker run -d noplanalderson/simasjid_docker:latest
 ```
 
 Default web root:
@@ -46,12 +46,56 @@ $ mkdir db-data simasjid_logs
 $ touch simasjid_logs/access.log simasjid_logs/error.log
 ```
 ```
+$ nano docker-compose.yml
+```
+And copy this script to docker-compose.yml file.
+```
+version: "3"
+
+services:
+  nginx:
+    image: 'noplanalderson/simasjid_docker:latest'
+    ports:
+        - '80:8080'
+        - '443:8443'
+    volumes:
+        - ./simasjid_logs/access.log:/var/log/nginx/simasjid-access.log
+        - ./simasjid_logs/error.log:/var/log/nginx/simasjid-error.log
+        - ./simasjid:/usr/share/nginx/html/simasjid
+        - ./default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.2
+
+  mysql:
+    image: 'mariadb'
+    ports:
+        - '3306:3306'
+    volumes:
+        - ./db-data:/var/lib/mysql
+    environment:
+        - MARIADB_ROOT_PASSWORD=K4s1hp4ssw0rdY4n9kUat!
+        - MARIADB_DATABASE=db_simasjid
+        - MARIADB_USER=userdb_simasjid
+        - MARIADB_PASSWORD=K4s1hp4ssw0rdY4n9kUat!
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.3
+
+networks:
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.20.0.0/29"
+```
+```
 $ docker-compose up -d
 ```
 
 ## Warning
-- This image not include MySQL Server
-- Dont forget to change server_name value in default.conf
+1. This image not include MySQL Server
+2. Dont forget to change server_name value in default.conf
 
     ```
     server_name _; # Replace _ with your domain or Host's IP Address
